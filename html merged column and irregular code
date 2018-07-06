@@ -1,0 +1,36 @@
+<table class="table table-bordered" id="tableId">
+	<col>
+	<col>
+	<col>
+	<col>
+	@{
+		foreach (string key in ViewBag.QuarterNamesDict.Keys)
+		{
+			<colgroup span="4"></colgroup>
+		}
+	}
+	<col>
+	<tr class="tableHeader">
+		<th rowspan="2" name="thHeader" class="rowVerticalAlign">Header</th>
+		<th rowspan="2" name="thSubHeader" class="rowVerticalAlign">SubHeader</th>
+		<th rowspan="2" name="thViewBy" class="rowVerticalAlign">Parameter</th>
+		<th rowspan="2" name="thSource" class="rowVerticalAlign">Source</th>
+	</tr>
+	<tr>
+		/*Delete this row if no column header group is present*/
+	</tr>
+	<tbody>
+		<tr>
+			/*if (new header Group)/*
+			{
+				<th class="rowVerticalAlign" name="thHeader" scope="rowgroup" rowspan=@Model.Where(x => x.Header == Header).Count()>@Header</th>
+			}
+			if (new sub header group)
+			{
+				<th class="rowVerticalAlign" name="thSubHeader" scope="rowgroup" rowspan=@Model.Where(x => x.Header == Header && x.SubHeader == subHeader).Count()>@subHeader</th>
+			}
+			<th scope="row" name="thViewBy">@viewBy</th>
+			<th scope="row" name="thSource">@item.Source</th>
+		</tr>
+	</tbody>
+</table>
